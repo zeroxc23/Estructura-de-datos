@@ -42,3 +42,58 @@ def MostrarIngredientes():
         "\n-- 9.",
         "\n-- 10. Caldo de pollito.",
         "\n-- Seleccione 6 ingredientes:")
+
+    ingredientes_disponibles = [
+    "Agua Destilada",
+    "Estabilizante",
+    "Varsol",
+    "Antígeno A",
+    "Antígeno B",
+    "Conservante",
+    "Nieldertos",
+    "Pomada",
+    "Acetaminofen",
+    "Caldo de pollito"
+]
+lista_seleccionados = []
+
+
+# SeleccionarIngrediente() -> Permite elegir
+def SeleccionarIngrediente():
+    ingrediente_elegido = input(
+        "Ingrese el nombre o número del ingrediente que desea seleccionar: "
+    ).strip()
+    return ingrediente_elegido
+
+def ValidarOpcion(ingrediente):
+    if ingrediente in ingredientes_disponibles:
+        return True
+    else:
+        print('Mensaje: "Ingresa una opción válida"')
+        return False
+
+
+# IngredienteRepetido() -> Evita seleccionar el mismo ingrediente
+def IngredienteRepetido(ingrediente, lista_seleccionados):
+    if ingrediente in lista_seleccionados:
+        print('Mensaje: "Ya seleccionaste este ingrediente"')
+        return True
+    else:
+        return False
+
+
+# AgregarIngrediente() -> Agrega el ingrediente elegido
+def AgregarIngrediente(ingrediente, lista_seleccionados):
+    lista_seleccionados.append(ingrediente)
+    print(f"-> Ingrediente '{ingrediente}' agregado con éxito.")
+    return lista_seleccionados
+
+
+
+def ejecutar_paso_seleccion():
+    ingrediente = SeleccionarIngrediente()
+
+    # Evaluación según los rombos del diagrama
+    if ValidarOpcion(ingrediente):
+        if not IngredienteRepetido(ingrediente, lista_seleccionados):
+            AgregarIngrediente(ingrediente, lista_seleccionados)
