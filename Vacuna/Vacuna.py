@@ -1,20 +1,22 @@
 import time
 import os
 
-print ("============================================================",
+#  Contextualizacion de la vacuna
+print ("=============================================================",
     "\n===                        HISTORIA                       ===",
     "\n=============================================================",
-    "\nUn virus desconocido ha puesto en peligro a la humanidad.",
-    "\nTú, como científico, debes fabricar una vacuna utilizando 6",
-    "\ningredientes. Pero no es tan fácil... Debes elegir los ingredientes correctos",
-    "\npara que la vacuna funcione.",
+    "\nUn virus desconocido ha puesto en peligro a la humanidad,",
+    "\ntú, como científico, debes fabricar una vacuna utilizando 6",
+    "\ningredientes. Pero no es tan fácil... Debes elegir los ",
+    "\ningredientes correctos para que la vacuna funcione.",
     "\n¡El destino del mundo está en tus manos!")
 
 input("\n--          Presiona enter para continuar          ---")
 time.sleep(1)
 os.system("cls")
 
-print ("\n=====================================================",
+#  Menu principal
+print ("\n======================================================",
     "\n===             FABRICACION DE VACUNAS            ===",
     "\n======================================================",
     "\n-- Ingredientes disponibles:",
@@ -28,3 +30,5 @@ print ("\n=====================================================",
     "\n-- 8." \
     "\n-- 9.",
     "\n-- 10. Caldo de pollito.",
+    "\n-- Seleccione 6 ingredientes:")
+
