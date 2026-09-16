@@ -34,7 +34,7 @@ ingredientes_correctos = [
 
 
 # ============================================================
-# MOSTRAR INTRODUCCIÓN
+# MOSTRAR INTRODUCCIÓN --- Funcion sin parametro y sin retorno
 # ============================================================
 
 def MostrarIntroduccion():
@@ -54,7 +54,7 @@ def MostrarIntroduccion():
 
 
 # ============================================================
-# MOSTRAR REGLAS
+# MOSTRAR REGLAS --- Funcion sin parametro y sin retorno
 # ============================================================
 
 def MostrarReglas():
@@ -74,7 +74,7 @@ def MostrarReglas():
 
 
 # ============================================================
-# MOSTRAR INGREDIENTES
+# MOSTRAR INGREDIENTES --- Funcion sin parametro y sin retorno
 # ============================================================
 
 def MostrarIngredientes():
@@ -94,7 +94,7 @@ def MostrarIngredientes():
 
 
 # ============================================================
-# SELECCIONAR INGREDIENTE
+# SELECCIONAR INGREDIENTE --- Funcion sin parametro y con retorno
 # ============================================================
 
 def SeleccionarIngrediente():
@@ -112,7 +112,7 @@ def SeleccionarIngrediente():
 
 
 # ============================================================
-# VALIDAR OPCIÓN
+# VALIDAR OPCIÓN --- Funcion con parametro y con retorno
 # ============================================================
 
 def ValidarOpcion(ingrediente):
@@ -125,7 +125,7 @@ def ValidarOpcion(ingrediente):
 
 
 # ============================================================
-# INGREDIENTE REPETIDO
+# INGREDIENTE REPETIDO --- Funcion con parametro y con retorno
 # ============================================================
 
 def IngredienteRepetido(ingrediente, lista_seleccionados):
@@ -140,7 +140,7 @@ def IngredienteRepetido(ingrediente, lista_seleccionados):
 
 
 # ============================================================
-# AGREGAR INGREDIENTE
+# AGREGAR INGREDIENTE --- Funcion con parametro y con retorno
 # ============================================================
 
 def AgregarIngrediente(ingrediente, lista_seleccionados):
@@ -157,7 +157,7 @@ def AgregarIngrediente(ingrediente, lista_seleccionados):
 
 
 # ============================================================
-# EJECUTAR PASO DE SELECCIÓN
+# EJECUTAR PASO DE SELECCIÓN --- Funcion sin parametro y con retorno
 # ============================================================
 
 def ejecutar_paso_seleccion():
@@ -176,7 +176,7 @@ def ejecutar_paso_seleccion():
 
 
 # ============================================================
-# COMPROBAR VACUNA
+# COMPROBAR VACUNA --- Funcion sin parametro y con retorno
 # ============================================================
 
 def ComprobarVacuna():
@@ -188,7 +188,7 @@ def ComprobarVacuna():
 
 
 # ============================================================
-# MOSTRAR RESULTADO
+# MOSTRAR RESULTADO --- Funcion sin parametro y sin retorno
 # ============================================================
 
 def MostrarResultado():
@@ -214,6 +214,8 @@ def MostrarResultado():
             "\n=============================================================",
             "\n¡Has salvado a la humanidad!"
         )
+        input()
+        exit()
 
     else:
 
@@ -222,45 +224,51 @@ def MostrarResultado():
             "\n                  VACUNA INCORRECTA",
             "\n=============================================================",
             "\nLa combinación de ingredientes no es correcta."
+            "\nVuelve a intentar\n\nESPERA UN MOMENTO"
         )
+        global vidas
+        vidas -= 1
+        time.sleep(5)
 
 
 # ============================================================
-# PROGRAMA PRINCIPAL
+# PROGRAMA PRINCIPAL 
 # ============================================================
 
 MostrarIntroduccion()
 MostrarReglas()
 MostrarIngredientes()
 
-for i in range(6):
+while (vidas != 0):
+    lista_seleccionados.clear()
+    for i in range(6):
 
-    bandera = False
+        bandera = False
 
-    while bandera == False:
+        while bandera == False:
 
-        print(f"\nIngrediente {i + 1} de 6")
-        print(f"Vidas restantes: {vidas}")
-
-        bandera = ejecutar_paso_seleccion()
-
-        # Si hubo un error, se pierde una vida
-        if bandera == False:
-
-            vidas -= 1
-
-            print(f"\n¡Has perdido una vida!")
+            print(f"\nIngrediente {i + 1} de 6")
             print(f"Vidas restantes: {vidas}")
 
-            if vidas == 0:
+            bandera = ejecutar_paso_seleccion()
 
-                print(
-                    "\n=============================================================",
-                    "\n                  GAME OVER",
-                    "\n=============================================================",
-                    "\nTe has quedado sin vidas."
-                )
+            # Si hubo un error, se pierde una vida
+            if bandera == False:
 
-                exit()
+                vidas -= 1
 
-MostrarResultado()
+                print(f"\n¡Has perdido una vida!")
+                print(f"Vidas restantes: {vidas}")
+
+                if vidas == 0:
+
+                    print(
+                        "\n=============================================================",
+                        "\n                  GAME OVER",
+                        "\n=============================================================",
+                        "\nTe has quedado sin vidas."
+                    )
+
+                    exit()
+
+    MostrarResultado()
