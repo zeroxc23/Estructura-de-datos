@@ -15,6 +15,7 @@ def MostrarIntroduccion():
 
 #  Mostrar reglas del juego
 def MostrarReglas():
+    os.system(cls)
     print ("=============================================================",
         "\n===                         REGLAS                        ===",
         "\n=============================================================",
@@ -31,32 +32,16 @@ def MostrarIngredientes():
         "\n===             FABRICACION DE VACUNAS            ===",
         "\n======================================================",
         "\n-- Ingredientes disponibles:",
-        "\n-- 1.",
-        "\n-- 2.",
-        "\n-- 3.",
-        "\n-- 4.",
-        "\n-- 5.",
-        "\n-- 6.",
-        "\n-- 7.",
-        "\n-- 8." \
-        "\n-- 9.",
-        "\n-- 10. Caldo de pollito.",
-        "\n-- Seleccione 6 ingredientes:")
-
-    ingredientes_disponibles = [
-    "Agua Destilada",
-    "Estabilizante",
-    "Varsol",
-    "Antígeno A",
-    "Antígeno B",
-    "Conservante",
-    "Nieldertos",
-    "Pomada",
-    "Acetaminofen",
-    "Caldo de pollito"
-]
-lista_seleccionados = []
-
+        "\n-- 1. Agua Destilada",
+        "\n-- 2. Estabilizante",
+        "\n-- 3. Varsol",
+        "\n-- 4. Antígeno A",
+        "\n-- 5. Antígeno B",
+        "\n-- 6. Conservante",
+        "\n-- 7. Nieldertos",
+        "\n-- 8. Pomada",
+        "\n-- 9. Acetaminofen",
+        "\n-- 10. Caldo de pollito.")
 
 # SeleccionarIngrediente() -> Permite elegir
 def SeleccionarIngrediente():
@@ -72,7 +57,6 @@ def ValidarOpcion(ingrediente):
         print('Mensaje: "Ingresa una opción válida"')
         return False
 
-
 # IngredienteRepetido() -> Evita seleccionar el mismo ingrediente
 def IngredienteRepetido(ingrediente, lista_seleccionados):
     if ingrediente in lista_seleccionados:
@@ -81,14 +65,11 @@ def IngredienteRepetido(ingrediente, lista_seleccionados):
     else:
         return False
 
-
 # AgregarIngrediente() -> Agrega el ingrediente elegido
 def AgregarIngrediente(ingrediente, lista_seleccionados):
     lista_seleccionados.append(ingrediente)
     print(f"-> Ingrediente '{ingrediente}' agregado con éxito.")
     return lista_seleccionados
-
-
 
 def ejecutar_paso_seleccion():
     ingrediente = SeleccionarIngrediente()
@@ -97,3 +78,19 @@ def ejecutar_paso_seleccion():
     if ValidarOpcion(ingrediente):
         if not IngredienteRepetido(ingrediente, lista_seleccionados):
             AgregarIngrediente(ingrediente, lista_seleccionados)
+
+ingredientes_disponibles = [
+    "Agua Destilada",
+    "Estabilizante",
+    "Varsol",
+    "Antígeno A",
+    "Antígeno B",
+    "Conservante",
+    "Nieldertos",
+    "Pomada",
+    "Acetaminofen",
+    "Caldo de pollito"
+]
+lista_seleccionados = []
+
+Mostrarintroduccion()
